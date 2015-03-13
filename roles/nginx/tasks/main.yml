@@ -1,0 +1,13 @@
+---
+- name: install nginx
+  apt: name=nginx state=latest
+  sudo: yes
+
+- name: configure nginx
+  template: src=nginx.conf dest=/etc/nginx/nginx.conf
+  sudo: yes
+
+- name: start nginx
+  service: name=nginx state=restarted
+  sudo: yes
+
